@@ -5,4 +5,8 @@
     <LangVersion>7.1</LangVersion>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Servicos\IProdutoServico.cs~RF1e14f5ad.TMP" />
+  </ItemGroup>
+
 </Project>

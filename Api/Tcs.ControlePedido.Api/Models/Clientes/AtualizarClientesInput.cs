@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using Tcs.ControlePedido.Negocio.Core.Clientes.Commands.CadastrarClientes;
+using Tcs.ControlePedido.Negocio.Core.Clientes.Commands.AtualizarCliente;
 
 namespace Tcs.ControlePedido.Api.Models.Clientes
 {

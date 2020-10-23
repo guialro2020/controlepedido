@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
-using Tcs.ControlePedido.Negocio.Core.Clientes.Commands.CadastrarClientes;
+using Tcs.ControlePedido.Negocio.Core.Clientes.Commands.CadastrarCliente;
 
-namespace Tcs.ControlePedido.Negocio.Clientes.Commands.CadastrarClientes
+namespace Tcs.ControlePedido.Negocio.Clientes.Commands.CadastrarCliente
 {
     public class CadastrarClienteValidador : AbstractValidator<ICadastrarClienteInput>
     {

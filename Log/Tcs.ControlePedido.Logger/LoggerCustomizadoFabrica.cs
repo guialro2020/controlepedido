@@ -11,9 +11,9 @@ namespace Tcs.ControlePedido.Logger
             switch (tipoLogger)
             {
                 case TipoLogger.Arquivo:
-                    return new LoggerArquivo(nome, loggerConfig);
+                    return LoggerArquivo.Instance.Configure(nome, loggerConfig);
                 default:
-                    return new LoggerArquivo(nome, loggerConfig);
+                    return LoggerArquivo.Instance.Configure(nome, loggerConfig);
             }
         }
     }

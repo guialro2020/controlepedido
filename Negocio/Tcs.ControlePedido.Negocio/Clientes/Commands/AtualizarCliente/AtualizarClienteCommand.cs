@@ -3,12 +3,12 @@ using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Tcs.ControlePedido.Negocio.Core.Clientes.Commands.CadastrarClientes;
+using Tcs.ControlePedido.Negocio.Core.Clientes.Commands.AtualizarCliente;
 using Tcs.ControlePedido.Persistencia.Core.Modelos;
 using Tcs.ControlePedido.Persistencia.Core.Servicos;
 using Tcs.ControlePedido.Persistencia.Modelos;
 
-namespace Tcs.ControlePedido.Negocio.Clientes.Commands.CadastrarClientes
+namespace Tcs.ControlePedido.Negocio.Clientes.Commands.AtualizarCliente
 {
     public class AtualizarClienteCommand : IAtualizarClienteCommand
     {
@@ -35,7 +35,7 @@ namespace Tcs.ControlePedido.Negocio.Clientes.Commands.CadastrarClientes
             {
                 ClienteId = input.ClienteId,
                 Bairro = input.Bairro,
-                Cep = input.Cep,
+                Cep = Convert.ToInt32(input.Cep.Replace("-", "").Replace(".", "")),
                 Cidade = input.Cidade,
                 Cpf = input.Cpf,
                 Endereco = input.Endereco,

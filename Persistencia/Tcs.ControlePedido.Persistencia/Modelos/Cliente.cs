@@ -28,7 +28,7 @@ namespace Tcs.ControlePedido.Persistencia.Modelos
 
         public string Endereco { get; set; }
 
-        public string Cep { get; set; }
+        public decimal Cep { get; set; }
 
         public string Bairro { get; set; }
 

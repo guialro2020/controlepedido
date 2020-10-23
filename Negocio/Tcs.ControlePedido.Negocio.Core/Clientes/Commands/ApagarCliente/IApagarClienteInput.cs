@@ -1,4 +1,4 @@
-﻿namespace Tcs.ControlePedido.Negocio.Core.Clientes.Commands.CadastrarClientes
+﻿namespace Tcs.ControlePedido.Negocio.Core.Clientes.Commands.ApagarCliente
 {
     public interface IApagarClienteInput : ICommandInput
     {

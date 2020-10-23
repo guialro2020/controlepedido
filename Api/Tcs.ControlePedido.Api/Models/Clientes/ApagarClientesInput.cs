@@ -1,4 +1,4 @@
-﻿using Tcs.ControlePedido.Negocio.Core.Clientes.Commands.CadastrarClientes;
+﻿using Tcs.ControlePedido.Negocio.Core.Clientes.Commands.ApagarCliente;
 
 namespace Tcs.ControlePedido.Api.Models.Clientes
 {

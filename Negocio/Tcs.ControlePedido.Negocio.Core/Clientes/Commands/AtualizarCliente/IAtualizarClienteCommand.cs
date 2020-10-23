@@ -1,4 +1,4 @@
-﻿namespace Tcs.ControlePedido.Negocio.Core.Clientes.Commands.CadastrarClientes
+﻿namespace Tcs.ControlePedido.Negocio.Core.Clientes.Commands.AtualizarCliente
 {
     public interface IAtualizarClienteCommand : ICommandSingle<IAtualizarClienteInput>
     {

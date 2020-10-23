@@ -1,7 +1,7 @@
 using NUnit.Framework;
 using System;
 using System.Threading.Tasks;
-using Tcs.ControlePedido.Negocio.Clientes.Commands.CadastrarClientes;
+using Tcs.ControlePedido.Negocio.Clientes.Commands.ApagarCliente;
 using Tcs.ControlePedido.Testes.Mocks.Repositorios;
 using Tcs.ControlePedido.Testes.Models.Clientes;
 

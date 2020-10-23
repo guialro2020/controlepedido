@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Tcs.ControlePedido.Persistencia.Core.Modelos;
 
@@ -6,8 +7,10 @@ namespace Tcs.ControlePedido.Persistencia.Core.Servicos
 {
     public interface IProdutoServico
     {
-        Task<IEnumerable<IProduto>> ObterProdutos();
-        Task<int> SalvarProduto(IProduto produto);
-        Task<int> ApagarProduto(int id);
+        Task<IList<IProduto>> ObterProdutos(CancellationToken cancellationToken);
+        Task<IProduto> ObterProdutoPeloId(int id, CancellationToken cancellationToken);
+        Task<int> AtualizarProduto(IProduto Produto, CancellationToken cancellationToken = default);
+        Task<int> CadastrarProduto(IProduto Produto, CancellationToken cancellationToken = default);
+        Task<int> ApagarProduto(int id, CancellationToken cancellationToken);
     }
 }

@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace Tcs.ControlePedido.Persistencia.Core.Modelos
 {
@@ -9,8 +7,21 @@ namespace Tcs.ControlePedido.Persistencia.Core.Modelos
     {
         [Key]
         int NotaFiscalId { get; }
-        ICliente Cliente { get; }
-        IPedido Pedido { get; }
-        IFrete Frete { get; }
+
+        string NomeCompleto { get; }
+
+        string Cpf { get; }
+
+        string Cep { get; }
+
+        int NumeroPedido { get; }
+
+        IEnumerable<IProdutoPedido> ItensPedido { get; }
+
+        string Uf { get; }
+
+        string NomeEstado { get; }
+
+        decimal ValorFrete { get; }
     }
 }

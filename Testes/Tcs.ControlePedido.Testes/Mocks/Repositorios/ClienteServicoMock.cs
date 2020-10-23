@@ -81,7 +81,7 @@ namespace Tcs.ControlePedido.Testes.Mocks.Repositorios
                     new Cliente {
                         ClienteId = 1,
                         Bairro = "Dornelas",
-                        Cep = "32123321",
+                        Cep = 32123321,
                         Cidade = "Belo Horizonte",
                         Cpf = "025321256952",
                         Endereco = "Rua Teste",
@@ -92,7 +92,7 @@ namespace Tcs.ControlePedido.Testes.Mocks.Repositorios
                     new Cliente {
                         ClienteId = 2,
                         Bairro = "Adusson",
-                        Cep = "32123321",
+                        Cep = 32123321,
                         Cidade = "Betim",
                         Cpf = "45685262950",
                         Endereco = "Rua Teste",
@@ -113,7 +113,7 @@ namespace Tcs.ControlePedido.Testes.Mocks.Repositorios
                 {
                     ClienteId = 1,
                     Bairro = "Dornelas",
-                    Cep = "32123321",
+                    Cep = 32123321,
                     Cidade = "Belo Horizonte",
                     Cpf = "025321256952",
                     Endereco = "Rua Teste",

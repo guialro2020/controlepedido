@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using Tcs.ControlePedido.Negocio.Core.Clientes.Commands.CadastrarClientes;
+﻿using Tcs.ControlePedido.Negocio.Core.Clientes.Commands.CadastrarCliente;
 
 namespace Tcs.ControlePedido.Testes.Models.Clientes
 {

@@ -2,5 +2,6 @@
 {
     public interface IObterClientesInput : IIQueryInput
     {
+        int ClienteId { get; }
     }
 }

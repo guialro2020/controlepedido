@@ -8,12 +8,6 @@
   <ItemGroup>
     <Folder Include="Fiscal\Commands\" />
     <Folder Include="Fiscal\Queries\" />
-    <Folder Include="Pedidos\Commands\" />
-    <Folder Include="Pedidos\Queries\ObterProdutosPedido\" />
-    <Folder Include="Produtos\Commands\AtualizarProdutos\" />
-    <Folder Include="Produtos\Commands\CadastrarProdutos\" />
-    <Folder Include="Produtos\Commands\ApagarProdutos\" />
-    <Folder Include="Produtos\Queries\ObterProdutos\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -33,7 +33,7 @@ namespace Tcs.ControlePedido.Api
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            CqrsDependencyInjection.InjetarDependencias(services);
+            ControlePedidoIoc.InjetarDependencias(services);
 
             services.AddSwaggerGen(c =>
             {

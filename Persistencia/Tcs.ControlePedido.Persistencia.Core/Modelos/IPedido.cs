@@ -9,12 +9,12 @@ namespace Tcs.ControlePedido.Persistencia.Core.Modelos
 
         DateTime DataPedido { get; }
 
+        int ClienteId { get; }
+
         decimal ValorTotal { get; }
 
         decimal ValorFrete { get; }
 
         IEnumerable<IProdutoPedido> ItensPedido { get; }
-
-        ICliente Cliente { get; }
     }
 }

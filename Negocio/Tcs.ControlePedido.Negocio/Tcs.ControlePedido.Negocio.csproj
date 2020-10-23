@@ -8,10 +8,6 @@
   <ItemGroup>
     <Folder Include="Fiscal\Commands\" />
     <Folder Include="Fiscal\Queries\" />
-    <Folder Include="Pedidos\Commands\" />
-    <Folder Include="Pedidos\Queries\" />
-    <Folder Include="Produtos\Commands\" />
-    <Folder Include="Produtos\Queries\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -11,5 +11,7 @@ namespace Tcs.ControlePedido.Persistencia
 
         public DbSet<Cliente> Cliente { get; set; }
         public DbSet<Produto> Produto { get; set; }
+        public DbSet<Frete> Frete { get; set; }
+        public DbSet<Pedido> Pedido { get; set; }
     }
 }

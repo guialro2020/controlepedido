@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Tcs.ControlePedido.Persistencia.Core.Modelos;
 using Tcs.ControlePedido.Persistencia.Core.Servicos;
@@ -17,28 +18,59 @@ namespace Tcs.ControlePedido.Persistencia.Servicos
             this.contexto = contexto;
         }
 
-        public async Task<int> ApagarProduto(int id)
+        private Produto PatchProduto(Produto produto, IProduto produtoNovo)
         {
-            this.contexto.Produto.Remove(this.contexto.Produto.Find(id));
+            produto.Categoria = produtoNovo.Categoria;
+            produto.CodigoProduto = produtoNovo.CodigoProduto;
+            produto.Descricao = produtoNovo.Descricao;
+            produto.ValorUnitario = produtoNovo.ValorUnitario;
 
-            return await this.contexto.SaveChangesAsync();
+            return produto;
         }
 
-        public async Task<int> SalvarProduto(IProduto cliente)
+        public async Task<int> ApagarProduto(int id, CancellationToken cancellationToken = default)
         {
-            this.contexto.Produto.Update((Produto)cliente);
+            var produto = await this.contexto.Produto.FindAsync(new object[] { id }, cancellationToken);
 
-            return await this.contexto.SaveChangesAsync();
+            if (produto == null)
+            {
+                throw new ArgumentNullException("O Produto não foi encontrado");
+            }
+
+            this.contexto.Produto.Remove(produto);
+
+            return await this.contexto.SaveChangesAsync(cancellationToken);
         }
 
-        public async Task<IEnumerable<IProduto>> ObterProdutos()
+        public async Task<int> AtualizarProduto(IProduto produto, CancellationToken cancellationToken = default)
         {
-            return await this.contexto.Produto.ToArrayAsync();
+            var produtoLocal = await this.contexto.Produto.FindAsync(new object[] { produto.CodigoProduto }, cancellationToken);
+
+            if (produtoLocal == null)
+            {
+                throw new ArgumentNullException("O Produto não foi encontrado");
+            }
+
+            this.contexto.Produto.Update(PatchProduto(produtoLocal, produto));
+
+            return await this.contexto.SaveChangesAsync(cancellationToken);
         }
 
-        public async Task<IProduto> ObterProdutoPeloId(int id)
+        public async Task<int> CadastrarProduto(IProduto produto, CancellationToken cancellationToken = default)
         {
-            return await this.contexto.Produto.FindAsync(id);
+            await this.contexto.Produto.AddAsync((Produto)produto, cancellationToken);
+
+            return await this.contexto.SaveChangesAsync(cancellationToken);
+        }
+
+        public async Task<IList<IProduto>> ObterProdutos(CancellationToken cancellationToken = default)
+        {
+            return await this.contexto.Produto.ToArrayAsync(cancellationToken);
+        }
+
+        public async Task<IProduto> ObterProdutoPeloId(int id, CancellationToken cancellationToken = default)
+        {
+            return await this.contexto.Produto.FindAsync(new object[] { id }, cancellationToken);
         }
     }
 }

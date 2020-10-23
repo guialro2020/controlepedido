@@ -3,10 +3,10 @@ using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Tcs.ControlePedido.Negocio.Core.Clientes.Commands.CadastrarClientes;
+using Tcs.ControlePedido.Negocio.Core.Clientes.Commands.ApagarCliente;
 using Tcs.ControlePedido.Persistencia.Core.Servicos;
 
-namespace Tcs.ControlePedido.Negocio.Clientes.Commands.CadastrarClientes
+namespace Tcs.ControlePedido.Negocio.Clientes.Commands.ApagarCliente
 {
     public class ApagarClienteCommand : IApagarClienteCommand
     {

@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\DipCore\Tcs.ControlePedido.Dip\Tcs.ControlePedido.Dip.csproj" />
+    <ProjectReference Include="..\..\IoC\Tcs.ControlePedido.Ioc\Tcs.ControlePedido.Ioc.csproj" />
     <ProjectReference Include="..\..\Log\Tcs.ControlePedido.Logger\Tcs.ControlePedido.Logger.csproj" />
     <ProjectReference Include="..\..\Negocio\Tcs.ControlePedido.Negocio.Core\Tcs.ControlePedido.Negocio.Core.csproj" />
     <ProjectReference Include="..\..\Persistencia\Tcs.ControlePedido.Persistencia\Tcs.ControlePedido.Persistencia.csproj" />

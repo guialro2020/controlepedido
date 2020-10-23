@@ -1,10 +1,10 @@
 ﻿using FluentValidation;
 using System.Threading;
 using System.Threading.Tasks;
-using Tcs.ControlePedido.Negocio.Core.Clientes.Commands.CadastrarClientes;
+using Tcs.ControlePedido.Negocio.Core.Clientes.Commands.AtualizarCliente;
 using Tcs.ControlePedido.Persistencia.Core.Servicos;
 
-namespace Tcs.ControlePedido.Negocio.Clientes.Commands.CadastrarClientes
+namespace Tcs.ControlePedido.Negocio.Clientes.Commands.AtualizarCliente
 {
     public class AtualizarClienteValidador : AbstractValidator<IAtualizarClienteInput>
     {

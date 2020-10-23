@@ -6,14 +6,26 @@ namespace Tcs.ControlePedido.Logger
 {
     internal class LoggerArquivo : ILogger
     {
-        readonly string loggerNome;
-        readonly ProvedorLogCustomizadoConfiguration loggerConfig;
+        private string loggerNome;
+        private ProvedorLogCustomizadoConfiguration loggerConfig;
         private string caminhoArquivo => Path.Combine(AppContext.BaseDirectory, "tcs.controlepedido.log");
+        private readonly object _lock = new object();
 
-        public LoggerArquivo(string nome, ProvedorLogCustomizadoConfiguration loggerConfig)
+        private static LoggerArquivo instance;
+        public static LoggerArquivo Instance
+        {
+            get
+            {
+                return instance ?? (instance = new LoggerArquivo());
+            }
+        }
+
+        public LoggerArquivo Configure(string nome, ProvedorLogCustomizadoConfiguration loggerConfig)
         {
             this.loggerNome = nome;
             this.loggerConfig = loggerConfig;
+
+            return this;
         }
 
         public IDisposable BeginScope<TState>(TState state)
@@ -29,10 +41,13 @@ namespace Tcs.ControlePedido.Logger
         {
             string mensagem = $"{DateTime.Now}: {logLevel.ToString()} - {formatter(state, exception)}";
 
-            using (var streamWriter = new StreamWriter(caminhoArquivo, true))
+            lock (_lock)
             {
-                streamWriter.WriteLine(mensagem);
-                streamWriter.Close();
+                using (var streamWriter = new StreamWriter(caminhoArquivo, true))
+                {
+                    streamWriter.WriteLine(mensagem);
+                    streamWriter.Close();
+                }
             }
         }
 
