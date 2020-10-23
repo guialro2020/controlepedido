@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Fiscal\Commands\" />
+    <Folder Include="Fiscal\Queries\" />
+    <Folder Include="Pedidos\Commands\" />
+    <Folder Include="Pedidos\Queries\" />
+    <Folder Include="Produtos\Commands\" />
+    <Folder Include="Produtos\Queries\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="9.2.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Persistencia\Tcs.ControlePedido.Persistencia\Tcs.ControlePedido.Persistencia.csproj" />
+    <ProjectReference Include="..\Tcs.ControlePedido.Negocio.Core\Tcs.ControlePedido.Negocio.Core.csproj" />
+  </ItemGroup>
+
+</Project>

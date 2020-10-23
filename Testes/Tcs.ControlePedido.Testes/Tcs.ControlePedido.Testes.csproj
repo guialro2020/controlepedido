@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Moq" Version="4.14.7" />
+    <PackageReference Include="nunit" Version="3.10.1" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.10.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Negocio\Tcs.ControlePedido.Negocio.Core\Tcs.ControlePedido.Negocio.Core.csproj" />
+    <ProjectReference Include="..\..\Negocio\Tcs.ControlePedido.Negocio\Tcs.ControlePedido.Negocio.csproj" />
+    <ProjectReference Include="..\..\Persistencia\Tcs.ControlePedido.Persistencia.Core\Tcs.ControlePedido.Persistencia.Core.csproj" />
+    <ProjectReference Include="..\..\Persistencia\Tcs.ControlePedido.Persistencia\Tcs.ControlePedido.Persistencia.csproj" />
+  </ItemGroup>
+
+</Project>
