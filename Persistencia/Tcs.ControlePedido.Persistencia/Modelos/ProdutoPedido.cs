@@ -5,6 +5,16 @@ namespace Tcs.ControlePedido.Persistencia.Modelos
 {
     public class ProdutoPedido : IProdutoPedido
     {
+        public ProdutoPedido() { }
+
+        public ProdutoPedido(IProdutoPedido produtoPedido)
+        {
+            this.ProdutoPedidoId = produtoPedido.ProdutoPedidoId;
+            this.CodigoProduto = produtoPedido.CodigoProduto;
+            this.Quantidade = produtoPedido.Quantidade;
+            this.ValorTotal = produtoPedido.ValorTotal;
+        }
+
         [Key]
         public int ProdutoPedidoId { get; set; }
 

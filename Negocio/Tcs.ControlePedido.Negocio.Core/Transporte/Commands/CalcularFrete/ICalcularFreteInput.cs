@@ -1,7 +1,7 @@
-﻿namespace Tcs.ControlePedido.Negocio.Core.Produtos.Commands.AtualizarProduto
+﻿namespace Tcs.ControlePedido.Negocio.Core.Transporte.Commands.CalcularFrete
 {
     public interface ICalcularFreteInput : ICommandInput
     {
-        decimal Cep { get; }
+        int Cep { get; }
     }
 }

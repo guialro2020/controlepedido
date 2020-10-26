@@ -9,8 +9,9 @@ namespace Tcs.ControlePedido.Persistencia.Core.Servicos
     {
         Task<IList<IProduto>> ObterProdutos(CancellationToken cancellationToken);
         Task<IProduto> ObterProdutoPeloId(int id, CancellationToken cancellationToken);
-        Task<int> AtualizarProduto(IProduto Produto, CancellationToken cancellationToken = default);
-        Task<int> CadastrarProduto(IProduto Produto, CancellationToken cancellationToken = default);
+        Task<int> ContarProdutosPorId(int[] ids, CancellationToken cancellationToken);
+        Task<int> AtualizarProduto(IProduto Produto, CancellationToken cancellationToken);
+        Task<int> CadastrarProduto(IProduto Produto, CancellationToken cancellationToken);
         Task<int> ApagarProduto(int id, CancellationToken cancellationToken);
     }
 }

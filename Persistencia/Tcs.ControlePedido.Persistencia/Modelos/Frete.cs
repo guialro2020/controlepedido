@@ -18,7 +18,7 @@ namespace Tcs.ControlePedido.Persistencia.Modelos
             this.Uf = uf;
             this.NomeEstado = nomeEstado;
             this.CepInicial = cepInicial;
-            this.CepFinal = CepFinal;
+            this.CepFinal = cepFinal;
             this.ValorFrete = valorFrete;
         }
 

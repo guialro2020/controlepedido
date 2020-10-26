@@ -1,10 +1,9 @@
-﻿using System;
-using Tcs.ControlePedido.Negocio.Core.Produtos.Commands.AtualizarProduto;
+﻿using Tcs.ControlePedido.Negocio.Core.Transporte.Commands.CalcularFrete;
 
 namespace Tcs.ControlePedido.Negocio.Pedidos.Commands
 {
     public class CalcularFreteInput : ICalcularFreteInput
     {
-        public decimal Cep { get; set; }
+        public int Cep { get; set; }
     }
 }

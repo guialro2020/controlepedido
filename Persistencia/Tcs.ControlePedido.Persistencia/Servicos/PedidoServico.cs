@@ -21,12 +21,27 @@ namespace Tcs.ControlePedido.Persistencia.Servicos
 
         private Pedido PatchPedido(Pedido pedido, IPedido pedidoNovo)
         {
-            pedido.ClienteId = pedidoNovo.ClienteId;
-            pedido.DataPedido = pedidoNovo.DataPedido;
-            pedido.ItensPedido = pedidoNovo.ItensPedido.Select(f => (ProdutoPedido)f);
             pedido.NumeroPedido = pedidoNovo.NumeroPedido;
-            pedido.ValorFrete = pedidoNovo.ValorFrete;
-            pedido.ValorTotal = pedidoNovo.ValorTotal;
+
+            if (pedidoNovo.ClienteId > 0)
+            {
+                pedido.ClienteId = pedidoNovo.ClienteId;
+            }
+
+            if (pedidoNovo.DataPedido > DateTime.MinValue)
+            {
+                pedido.DataPedido = pedidoNovo.DataPedido;
+            }
+
+            if (pedidoNovo.ItensPedido != null && pedidoNovo.ItensPedido.Any())
+            {
+                pedido.ItensPedido = pedidoNovo.ItensPedido.Select(f => (ProdutoPedido)f).ToList();
+            }
+
+            if (pedidoNovo.ValorFrete > 0)
+            {
+                pedido.ValorFrete = pedidoNovo.ValorFrete;
+            }
 
             return pedido;
         }
@@ -68,7 +83,7 @@ namespace Tcs.ControlePedido.Persistencia.Servicos
 
         public async Task<IList<IPedido>> ObterPedidos(CancellationToken cancellationToken = default)
         {
-            return await this.contexto.Pedido.ToArrayAsync(cancellationToken);
+            return await this.contexto.Pedido.Include(f => f.ItensPedido).ToArrayAsync(cancellationToken);
         }
 
         public async Task<IPedido> ObterPedidoPeloId(int id, CancellationToken cancellationToken = default)

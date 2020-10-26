@@ -9,8 +9,7 @@ namespace Tcs.ControlePedido.Api.Models.Pedidos
 {
     public class AtualizarPedidosInput : IAtualizarPedidoInput
     {
-        [JsonIgnore]
-        public int NumeroPedido { get; set; }
+        private int NumeroPedido { get; set; }
 
         [JsonProperty("dataPedido")]
         public DateTime DataPedido { get; set; }
@@ -18,12 +17,18 @@ namespace Tcs.ControlePedido.Api.Models.Pedidos
         [JsonProperty("clienteId")]
         public int ClienteId { get; set; }
 
-        [JsonProperty("valorTotal")]
-        public decimal ValorTotal { get; set; }
-
         [JsonProperty("itensPedido")]
         public IEnumerable<ProdutoPedido> ItensPedido { get; set; }
 
+        int IAtualizarPedidoInput.NumeroPedido => this.NumeroPedido;
+
         IEnumerable<IProdutoPedido> IAtualizarPedidoInput.ItensPedido => this.ItensPedido.Select(f => (IProdutoPedido)f);
+
+        public AtualizarPedidosInput ConfigurarPatch(int numeroPedido)
+        {
+            this.NumeroPedido = numeroPedido;
+
+            return this;
+        }
     }
 }

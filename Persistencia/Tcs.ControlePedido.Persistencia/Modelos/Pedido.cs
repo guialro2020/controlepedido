@@ -15,12 +15,12 @@ namespace Tcs.ControlePedido.Persistencia.Modelos
 
         public int ClienteId { get; set; }
 
-        public decimal ValorTotal { get; set; }
+        public decimal ValorTotal => this.ItensPedido?.Sum(f => f.ValorTotal) ?? 0;
 
         public decimal ValorFrete { get; set; }
 
-        public IEnumerable<ProdutoPedido> ItensPedido { get; set; }
+        public List<ProdutoPedido> ItensPedido { get; set; }
 
-        IEnumerable<IProdutoPedido> IPedido.ItensPedido => this.ItensPedido.Select(f => (IProdutoPedido)f);
+        IEnumerable<IProdutoPedido> IPedido.ItensPedido => this.ItensPedido.Select(f => (IProdutoPedido)f).ToList();
     }
 }

@@ -3,11 +3,10 @@ using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Tcs.ControlePedido.Negocio.Core.Produtos.Commands.AtualizarProduto;
-using Tcs.ControlePedido.Negocio.Fretes.Commands.AtualizarFrete;
+using Tcs.ControlePedido.Negocio.Core.Transporte.Commands.CalcularFrete;
 using Tcs.ControlePedido.Persistencia.Core.Servicos;
 
-namespace Tcs.ControlePedido.Negocio.Produtos.Commands.AtualizarProduto
+namespace Tcs.ControlePedido.Negocio.Transporte.Commands.CalcularFrete
 {
     public class CalcularFreteCommand : ICalcularFreteCommand
     {
@@ -21,13 +20,13 @@ namespace Tcs.ControlePedido.Negocio.Produtos.Commands.AtualizarProduto
             this.validador = validador;
         }
 
-        public async Task<decimal> Executar(ICalcularFreteInput input, CancellationToken cancellationToken = default)
+        public async Task<decimal?> Executar(ICalcularFreteInput input, CancellationToken cancellationToken = default)
         {
             await ValidarInput(input, cancellationToken);
 
             var frete = await this.freteServico.ObterFretePeloCep(input.Cep, cancellationToken);
 
-            return frete.ValorFrete;
+            return frete?.ValorFrete;
         }
 
         private async Task ValidarInput(ICalcularFreteInput input, CancellationToken cancellationToken)

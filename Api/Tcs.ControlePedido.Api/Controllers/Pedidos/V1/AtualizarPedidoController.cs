@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 using System.Threading;
@@ -11,13 +12,17 @@ namespace Tcs.ControlePedido.Api.Controllers.Pedidos.V1
     {
         [HttpPatch]
         [Route("atualizar")]
-        public async Task<IActionResult> AtualizarPedido(int id, [FromBody][Required]AtualizarPedidosInput cliente, CancellationToken cancellationToken)
+        public async Task<IActionResult> AtualizarPedido(int id, [FromBody][Required]AtualizarPedidosInput pedido, CancellationToken cancellationToken)
         {
-            cliente.NumeroPedido = id;
+            logger.LogInformation($"Atualizando pedido {id}. Patch: {JsonConvert.SerializeObject(pedido)}");
 
-            await this.atualizarCommand.Executar(cliente, cancellationToken);
+            pedido.ConfigurarPatch(id);
 
-            return this.Ok($"Pedido {cliente.NumeroPedido} atualizado com sucesso!");
+            await this.atualizarCommand.Executar(pedido, cancellationToken);
+
+            logger.LogInformation($"Pedido {id} atualizado com sucesso.");
+
+            return this.Ok($"Pedido atualizado com sucesso!");
         }
     }
 }

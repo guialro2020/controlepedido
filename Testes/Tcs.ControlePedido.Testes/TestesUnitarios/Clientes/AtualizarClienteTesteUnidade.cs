@@ -5,13 +5,13 @@ using Tcs.ControlePedido.Negocio.Clientes.Commands.AtualizarCliente;
 using Tcs.ControlePedido.Testes.Mocks.Repositorios;
 using Tcs.ControlePedido.Testes.Models.Clientes;
 
-namespace Tests
+namespace Tcs.ControlePedido.Testes.Clientes
 {
     [TestFixture]
     public class AtualizarClienteTesteUnidade
     {
         [Test]
-        public async Task AtualizarClienteNaoEncontrado()
+        public void AtualizarClienteNaoEncontrado()
         {
             var clienteServiceMock = new ClienteServicoMock();
             var clienteServico = clienteServiceMock.ConfigurarAtualizarNaoEncontrado().Build();
@@ -25,7 +25,7 @@ namespace Tests
         }
 
         [Test]
-        public async Task AtualizarClienteSucesso()
+        public void AtualizarClienteSucesso()
         {
             var clienteServiceMock = new ClienteServicoMock();
             var clienteServico = clienteServiceMock.ConfigurarAtualizarSucesso().Build();
@@ -39,7 +39,7 @@ namespace Tests
         }
 
         [Test]
-        public async Task AtualizarClienteIdClienteNaoInformado()
+        public void AtualizarClienteIdClienteNaoInformado()
         {
             var clienteServiceMock = new ClienteServicoMock();
             var clienteServico = clienteServiceMock.ConfigurarAtualizarSucesso().Build();

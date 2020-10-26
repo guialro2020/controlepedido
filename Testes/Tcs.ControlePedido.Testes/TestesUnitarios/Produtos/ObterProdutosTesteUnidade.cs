@@ -3,10 +3,10 @@ using System.Threading.Tasks;
 using Tcs.ControlePedido.Negocio.Clientes.Queries.ObterClientes;
 using Tcs.ControlePedido.Testes.Mocks.Repositorios;
 
-namespace Tests
+namespace Tcs.ControlePedido.Testes.Produtos
 {
     [TestFixture]
-    public class ObterClienteTesteUnidade
+    public class ObterProdutosTesteUnidade
     {
         [Test]
         public async Task ObterClienteSucesso()

@@ -35,7 +35,7 @@ namespace Tcs.ControlePedido.Negocio.Clientes.Commands.AtualizarCliente
             {
                 ClienteId = input.ClienteId,
                 Bairro = input.Bairro,
-                Cep = Convert.ToInt32(input.Cep.Replace("-", "").Replace(".", "")),
+                Cep = Convert.ToInt32(input.Cep?.Replace("-", "")?.Replace(".", "") ?? "0"),
                 Cidade = input.Cidade,
                 Cpf = input.Cpf,
                 Endereco = input.Endereco,

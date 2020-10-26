@@ -15,9 +15,6 @@ namespace Tcs.ControlePedido.Api.Models.Pedidos
         [JsonProperty("clienteId")]
         public int ClienteId { get; set; }
 
-        [JsonProperty("valorTotal")]
-        public decimal ValorTotal { get; set; }
-
         [JsonProperty("itensPedido")]
         public IEnumerable<ProdutoPedido> ItensPedido { get; set; }
 

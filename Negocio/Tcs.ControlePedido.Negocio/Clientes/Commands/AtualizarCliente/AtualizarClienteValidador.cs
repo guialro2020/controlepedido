@@ -22,7 +22,7 @@ namespace Tcs.ControlePedido.Negocio.Clientes.Commands.AtualizarCliente
         {
             var cliente = await this.clienteServico.ObterClientePeloId(clienteId, cancellationToken);
 
-            return cliente != null;
+            return cliente != null && cliente.ClienteId >= 1;
         }
     }
 }

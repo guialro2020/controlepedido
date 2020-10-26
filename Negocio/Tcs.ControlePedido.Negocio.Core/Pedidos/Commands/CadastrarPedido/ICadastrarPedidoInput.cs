@@ -10,8 +10,6 @@ namespace Tcs.ControlePedido.Negocio.Core.Pedidos.Commands.CadastrarPedido
 
         int ClienteId { get; }
 
-        decimal ValorTotal { get; }
-
         IEnumerable<IProdutoPedido> ItensPedido { get; }
     }
 }

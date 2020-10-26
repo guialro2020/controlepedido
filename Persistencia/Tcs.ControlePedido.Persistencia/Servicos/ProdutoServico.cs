@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Tcs.ControlePedido.Persistencia.Core.Modelos;
@@ -71,6 +72,11 @@ namespace Tcs.ControlePedido.Persistencia.Servicos
         public async Task<IProduto> ObterProdutoPeloId(int id, CancellationToken cancellationToken = default)
         {
             return await this.contexto.Produto.FindAsync(new object[] { id }, cancellationToken);
+        }
+
+        public async Task<int> ContarProdutosPorId(int[] id, CancellationToken cancellationToken = default)
+        {
+            return await this.contexto.Produto.CountAsync(f => id.Any(g => g == f.CodigoProduto), cancellationToken);
         }
     }
 }

@@ -12,8 +12,6 @@ namespace Tcs.ControlePedido.Negocio.Core.Pedidos.Commands.AtualizarPedido
 
         int ClienteId { get; }
 
-        decimal ValorTotal { get; }
-
         IEnumerable<IProdutoPedido> ItensPedido { get; }
     }
 }

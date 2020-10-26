@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
-using Tcs.ControlePedido.Negocio.Core.Produtos.Commands.AtualizarProduto;
+using Tcs.ControlePedido.Negocio.Core.Transporte.Commands.CalcularFrete;
 using Tcs.ControlePedido.Persistencia.Core.Servicos;
 
-namespace Tcs.ControlePedido.Negocio.Fretes.Commands.AtualizarFrete
+namespace Tcs.ControlePedido.Negocio.Transporte.Commands.CalcularFrete
 {
     public class CalcularFreteValidador : AbstractValidator<ICalcularFreteInput>
     {

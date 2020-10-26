@@ -6,8 +6,6 @@ namespace Tcs.ControlePedido.Persistencia.Core.Servicos
 {
     public interface IFreteServico
     {
-        Task<IFrete> ObterFretePelaUf(string uf, CancellationToken cancellationToken);
-
-        Task<IFrete> ObterFretePeloCep(decimal cep, CancellationToken cancellationToken);
+        Task<IFrete> ObterFretePeloCep(int cep, CancellationToken cancellationToken = default);
     }
 }

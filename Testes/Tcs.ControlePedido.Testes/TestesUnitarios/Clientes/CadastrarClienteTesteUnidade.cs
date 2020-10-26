@@ -5,13 +5,13 @@ using Tcs.ControlePedido.Negocio.Clientes.Commands.CadastrarCliente;
 using Tcs.ControlePedido.Testes.Mocks.Repositorios;
 using Tcs.ControlePedido.Testes.Models.Clientes;
 
-namespace Tests
+namespace Tcs.ControlePedido.Testes.Clientes
 {
     [TestFixture]
     public class CadastrarClienteTesteUnidade
     {
         [Test]
-        public async Task CadastrarClienteSucesso()
+        public void CadastrarClienteSucesso()
         {
             var clienteServiceMock = new ClienteServicoMock();
             var clienteServico = clienteServiceMock.ConfigurarCadastrarSucesso().Build();
@@ -32,7 +32,7 @@ namespace Tests
         }
 
         [Test]
-        public async Task CadastrarClienteErroValidacao()
+        public void CadastrarClienteErroValidacao()
         {
             var clienteServiceMock = new ClienteServicoMock();
             var clienteServico = clienteServiceMock.ConfigurarCadastrarSucesso().Build();

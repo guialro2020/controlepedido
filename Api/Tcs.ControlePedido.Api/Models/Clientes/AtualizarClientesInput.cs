@@ -6,7 +6,7 @@ namespace Tcs.ControlePedido.Api.Models.Clientes
     public class AtualizarClientesInput : IAtualizarClienteInput
     {
         [JsonIgnore]
-        public int ClienteId { get; set; }
+        private int ClienteId { get; set; }
 
         [JsonProperty("nomeCompleto")]
         public string NomeCompleto { get; set; }
@@ -31,5 +31,14 @@ namespace Tcs.ControlePedido.Api.Models.Clientes
 
         [JsonProperty("telefone")]
         public string Telefone { get; set; }
+
+        int IAtualizarClienteInput.ClienteId => this.ClienteId;
+
+        public AtualizarClientesInput ConfigurarPatch(int clienteId)
+        {
+            this.ClienteId = clienteId;
+
+            return this;
+        }
     }
 }

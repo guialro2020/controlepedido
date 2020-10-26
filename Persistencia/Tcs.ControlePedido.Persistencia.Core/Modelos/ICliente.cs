@@ -10,7 +10,7 @@
 
         string Endereco { get; }
 
-        decimal Cep { get; }
+        int Cep { get; }
 
         string Bairro { get; }
 

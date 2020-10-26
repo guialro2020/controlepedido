@@ -2,5 +2,6 @@
 {
     public interface IObterProdutosInput : IIQueryInput
     {
+        int CodigoProduto { get; }
     }
 }

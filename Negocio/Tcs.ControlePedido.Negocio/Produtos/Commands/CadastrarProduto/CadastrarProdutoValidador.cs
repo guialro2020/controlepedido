@@ -8,7 +8,7 @@ namespace Tcs.ControlePedido.Negocio.Produtos.Commands.CadastrarProduto
         public CadastrarProdutoValidador()
         {
             RuleFor(f => f.Descricao).NotEmpty().WithMessage("Descrição do Produto não informado");
-            RuleFor(f => f.ValorUnitario).NotNull().WithMessage("Valor do produto não informado");
+            RuleFor(f => f.ValorUnitario).GreaterThanOrEqualTo(0).WithMessage("Valor do produto incorreto");
         }
     }
 }
