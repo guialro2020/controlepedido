@@ -69,7 +69,6 @@ namespace Tcs.ControlePedido.Api
                     "Controle de Pedidos");
             });
 
-            app.UseHttpsRedirection();
             app.UseMvc();
         }
     }
