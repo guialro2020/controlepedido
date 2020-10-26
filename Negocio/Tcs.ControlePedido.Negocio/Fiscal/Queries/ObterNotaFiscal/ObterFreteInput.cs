@@ -1,8 +1,8 @@
 ﻿using Tcs.ControlePedido.Negocio.Core.Transporte.Queries.ObterFrete;
 
-namespace Tcs.ControlePedido.Negocio.Pedidos.Commands
+namespace Tcs.ControlePedido.Negocio.Fiscal.Queries.ObterNotaFiscal
 {
-    public class CalcularFreteInput : IObterFreteInput
+    internal class ObterFreteInput : IObterFreteInput
     {
         public int Cep { get; set; }
     }

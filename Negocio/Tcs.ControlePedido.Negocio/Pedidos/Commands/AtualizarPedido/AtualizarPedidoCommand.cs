@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Tcs.ControlePedido.Negocio.Core.Clientes.Queries.ObterClientes;
 using Tcs.ControlePedido.Negocio.Core.Pedidos.Commands.AtualizarPedido;
 using Tcs.ControlePedido.Negocio.Core.Produtos.Queries.ObterProdutos;
-using Tcs.ControlePedido.Negocio.Core.Transporte.Commands.CalcularFrete;
+using Tcs.ControlePedido.Negocio.Core.Transporte.Queries.ObterFrete;
 using Tcs.ControlePedido.Persistencia.Core.Modelos;
 using Tcs.ControlePedido.Persistencia.Core.Servicos;
 using Tcs.ControlePedido.Persistencia.Modelos;
@@ -17,19 +17,19 @@ namespace Tcs.ControlePedido.Negocio.Pedidos.Commands.AtualizarPedido
     public class AtualizarPedidoCommand : IAtualizarPedidoCommand
     {
         private readonly IPedidoServico clienteServico;
-        private readonly ICalcularFreteCommand calcularFreteCommand;
+        private readonly IObterFreteQuery obterFreteQuery;
         private readonly IObterClientesQuery obterClientesQuery;
         private readonly IObterProdutosQuery obterProdutosQuery;
         private readonly AtualizarPedidoValidador validador;
 
         public AtualizarPedidoCommand(IPedidoServico clienteServico,
-            ICalcularFreteCommand calcularFreteCommand,
+            IObterFreteQuery obterFreteQuery,
             IObterClientesQuery obterClientesQuery,
             IObterProdutosQuery obterProdutosQuery,
             AtualizarPedidoValidador validador)
         {
             this.clienteServico = clienteServico;
-            this.calcularFreteCommand = calcularFreteCommand;
+            this.obterFreteQuery = obterFreteQuery;
             this.obterClientesQuery = obterClientesQuery;
             this.obterProdutosQuery = obterProdutosQuery;
             this.validador = validador;
@@ -77,10 +77,12 @@ namespace Tcs.ControlePedido.Negocio.Pedidos.Commands.AtualizarPedido
                 throw new ArgumentException("Não foi possível encontrar o frete para o CEP informado.");
             }
 
-            return await this.calcularFreteCommand.Executar(new CalcularFreteInput
+            var frete = await this.obterFreteQuery.Executar(new CalcularFreteInput
             {
                 Cep = cepCliente.Value
             }, cancellationToken);
+
+            return frete?.ValorFrete;
         }
 
         private async Task<int?> ObterCepCliente(int clienteId, CancellationToken cancellationToken)

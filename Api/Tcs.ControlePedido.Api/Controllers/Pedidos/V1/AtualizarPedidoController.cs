@@ -22,7 +22,7 @@ namespace Tcs.ControlePedido.Api.Controllers.Pedidos.V1
 
             logger.LogInformation($"Pedido {id} atualizado com sucesso.");
 
-            return this.Ok($"Pedido atualizado com sucesso!");
+            return this.NoContent();
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Tcs.ControlePedido.Negocio.Clientes.Queries.ObterClientes;
 using Tcs.ControlePedido.Negocio.Pedidos.Commands.CadastrarPedido;
 using Tcs.ControlePedido.Negocio.Produtos.Queries.ObterProdutos;
-using Tcs.ControlePedido.Negocio.Transporte.Commands.CalcularFrete;
+using Tcs.ControlePedido.Negocio.Transporte.Queries.ObterFrete;
 using Tcs.ControlePedido.Persistencia.Modelos;
 using Tcs.ControlePedido.Testes.Mocks.Repositorios;
 using Tcs.ControlePedido.Testes.Models.Pedidos;
@@ -39,7 +39,7 @@ namespace Tcs.ControlePedido.Testes.Pedidos
         {
             var freteServiceMock = new FreteServicoMock();
             var freteServico = freteServiceMock.ConfigurarObterFretePeloId().Build();
-            var calcularFreteCommand = new CalcularFreteCommand(freteServico, new CalcularFreteValidador(freteServico));
+            var obterFreteQuery = new ObterFreteQuery(freteServico, new ObterFreteValidador(freteServico));
 
             var clienteServiceMock = new ClienteServicoMock();
             var clienteServico = clienteServiceMock.ConfigurarObterClientePeloId().ConfigurarObterClientes().Build();
@@ -53,7 +53,7 @@ namespace Tcs.ControlePedido.Testes.Pedidos
             var pedidoServico = pedidoServiceMock.ConfigurarCadastrarSucesso().Build();
 
             var cadastrarCommand = new CadastrarPedidoCommand(pedidoServico,
-                calcularFreteCommand,
+                obterFreteQuery,
                 obterClientesQuery,
                 obterProdutoQuery,
                 new CadastrarPedidoValidador(clienteServico, produtoServico));
@@ -68,7 +68,7 @@ namespace Tcs.ControlePedido.Testes.Pedidos
         {
             var freteServiceMock = new FreteServicoMock();
             var freteServico = freteServiceMock.ConfigurarObterFretePeloIdInexistente().Build();
-            var calcularFreteCommand = new CalcularFreteCommand(freteServico, new CalcularFreteValidador(freteServico));
+            var obterFreteQuery = new ObterFreteQuery(freteServico, new ObterFreteValidador(freteServico));
 
             var clienteServiceMock = new ClienteServicoMock();
             var clienteServico = clienteServiceMock.ConfigurarObterClientePeloId().ConfigurarObterClientes().Build();
@@ -82,7 +82,7 @@ namespace Tcs.ControlePedido.Testes.Pedidos
             var pedidoServico = pedidoServiceMock.ConfigurarCadastrarSucesso().Build();
 
             var cadastrarCommand = new CadastrarPedidoCommand(pedidoServico,
-                calcularFreteCommand,
+                obterFreteQuery,
                 obterClientesQuery,
                 obterProdutoQuery,
                 new CadastrarPedidoValidador(clienteServico, produtoServico));
@@ -120,7 +120,7 @@ namespace Tcs.ControlePedido.Testes.Pedidos
         {
             var freteServiceMock = new FreteServicoMock();
             var freteServico = freteServiceMock.ConfigurarObterFretePeloId().Build();
-            var calcularFreteCommand = new CalcularFreteCommand(freteServico, new CalcularFreteValidador(freteServico));
+            var obterFreteQuery = new ObterFreteQuery(freteServico, new ObterFreteValidador(freteServico));
 
             var clienteServiceMock = new ClienteServicoMock();
             var clienteServico = clienteServiceMock.ConfigurarObterClientePeloIdInexistente().Build();
@@ -134,7 +134,7 @@ namespace Tcs.ControlePedido.Testes.Pedidos
             var pedidoServico = pedidoServiceMock.ConfigurarCadastrarSucesso().Build();
 
             var cadastrarCommand = new CadastrarPedidoCommand(pedidoServico,
-                calcularFreteCommand,
+                obterFreteQuery,
                 obterClientesQuery,
                 obterProdutoQuery,
                 new CadastrarPedidoValidador(clienteServico, produtoServico));
@@ -147,7 +147,7 @@ namespace Tcs.ControlePedido.Testes.Pedidos
         {
             var freteServiceMock = new FreteServicoMock();
             var freteServico = freteServiceMock.ConfigurarObterFretePeloId().Build();
-            var calcularFreteCommand = new CalcularFreteCommand(freteServico, new CalcularFreteValidador(freteServico));
+            var obterFreteQuery = new ObterFreteQuery(freteServico, new ObterFreteValidador(freteServico));
 
             var clienteServiceMock = new ClienteServicoMock();
             var clienteServico = clienteServiceMock.ConfigurarObterClientePeloId().ConfigurarObterClientes().Build();
@@ -161,7 +161,7 @@ namespace Tcs.ControlePedido.Testes.Pedidos
             var pedidoServico = pedidoServiceMock.ConfigurarCadastrarSucesso().Build();
 
             var cadastrarCommand = new CadastrarPedidoCommand(pedidoServico,
-                calcularFreteCommand,
+                obterFreteQuery,
                 obterClientesQuery,
                 obterProdutoQuery,
                 new CadastrarPedidoValidador(clienteServico, produtoServico));

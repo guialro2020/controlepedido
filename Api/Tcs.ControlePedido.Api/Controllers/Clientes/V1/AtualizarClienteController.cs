@@ -22,7 +22,7 @@ namespace Tcs.ControleCliente.Api.Controllers.Clientes.V1
 
             logger.LogInformation($"Cliente {id} atualizado com sucesso");
 
-            return this.Ok($"Cliente atualizado com sucesso!");
+            return this.NoContent();
         }
     }
 }

@@ -74,11 +74,11 @@ namespace Tcs.ControlePedido.Persistencia.Servicos
             return await this.contexto.SaveChangesAsync(cancellationToken);
         }
 
-        public async Task<int> CadastrarPedido(IPedido pedido, CancellationToken cancellationToken = default)
+        public async Task CadastrarPedido(IPedido pedido, CancellationToken cancellationToken = default)
         {
             await this.contexto.Pedido.AddAsync((Pedido)pedido, cancellationToken);
 
-            return await this.contexto.SaveChangesAsync(cancellationToken);
+            await this.contexto.SaveChangesAsync(cancellationToken);
         }
 
         public async Task<IList<IPedido>> ObterPedidos(CancellationToken cancellationToken = default)

@@ -22,7 +22,7 @@ namespace Tcs.ControleProduto.Api.Controllers.Produtos.V1
 
             logger.LogInformation($"Produto {id} atualizado com sucesso.");
 
-            return this.Ok($"Produto atualizado com sucesso!");
+            return this.NoContent();
         }
     }
 }

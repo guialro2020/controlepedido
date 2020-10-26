@@ -26,9 +26,12 @@ namespace Tcs.ControlePedido.Negocio.Clientes.Commands.CadastrarCliente
         {
             await ValidarInput(input, cancellationToken);
 
+            var clienteNovo = MapearNovoCliente(input);
+            await this.clienteServico.CadastrarCliente(clienteNovo, cancellationToken);
+
             var cadastrarClienteOutput = new CadastrarClienteOutput
             {
-                ClienteId = await this.clienteServico.CadastrarCliente(MapearNovoCliente(input), cancellationToken)
+                ClienteId = clienteNovo.ClienteId
             };
 
             return cadastrarClienteOutput;

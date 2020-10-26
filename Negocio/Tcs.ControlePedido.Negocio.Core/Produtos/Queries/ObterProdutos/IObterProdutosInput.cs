@@ -1,6 +1,6 @@
 ﻿namespace Tcs.ControlePedido.Negocio.Core.Produtos.Queries.ObterProdutos
 {
-    public interface IObterProdutosInput : IIQueryInput
+    public interface IObterProdutosInput : IQueryInput
     {
         int CodigoProduto { get; }
     }

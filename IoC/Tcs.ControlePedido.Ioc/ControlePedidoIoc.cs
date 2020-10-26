@@ -30,7 +30,9 @@ namespace Tcs.ControlePedido.Api
             services.AddScoped<Negocio.Produtos.Commands.AtualizarProduto.AtualizarProdutoValidador>();
             services.AddScoped<Negocio.Produtos.Commands.CadastrarProduto.CadastrarProdutoValidador>();
 
-            services.AddScoped<Negocio.Transporte.Commands.CalcularFrete.CalcularFreteValidador>();
+            services.AddScoped<Negocio.Transporte.Queries.ObterFrete.ObterFreteValidador>();
+
+            services.AddScoped<Negocio.Fiscal.Queries.ObterNotaFiscal.ObterNotaFiscalValidador>();
 
             return services;
         }
@@ -49,7 +51,9 @@ namespace Tcs.ControlePedido.Api
             services.AddTransient<Negocio.Core.Produtos.Commands.AtualizarProduto.IAtualizarProdutoCommand, Negocio.Produtos.Commands.AtualizarProduto.AtualizarProdutoCommand>();
             services.AddTransient<Negocio.Core.Produtos.Commands.ApagarProduto.IApagarProdutoCommand, Negocio.Produtos.Commands.ApagarProduto.ApagarProdutoCommand>();
 
-            services.AddTransient<Negocio.Core.Transporte.Commands.CalcularFrete.ICalcularFreteCommand, Negocio.Transporte.Commands.CalcularFrete.CalcularFreteCommand>();
+            services.AddTransient<Negocio.Core.Transporte.Queries.ObterFrete.IObterFreteQuery, Negocio.Transporte.Queries.ObterFrete.ObterFreteQuery>();
+
+            services.AddTransient<Negocio.Core.Fiscal.Queries.ObterNotaFiscal.IObterNotaFiscalQuery, Negocio.Fiscal.Queries.ObterNotaFiscal.ObterNotaFiscalQuery>();
 
             return services;
         }

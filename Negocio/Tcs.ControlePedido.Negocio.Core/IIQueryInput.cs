@@ -1,6 +1,6 @@
 ﻿namespace Tcs.ControlePedido.Negocio.Core
 {
-    public interface IIQueryInput
+    public interface IQueryInput
     {
     }
 }

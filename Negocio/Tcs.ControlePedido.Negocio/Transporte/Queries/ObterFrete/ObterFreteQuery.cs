@@ -3,33 +3,32 @@ using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Tcs.ControlePedido.Negocio.Core.Transporte.Commands.CalcularFrete;
+using Tcs.ControlePedido.Negocio.Core.Transporte.Queries.ObterFrete;
+using Tcs.ControlePedido.Persistencia.Core.Modelos;
 using Tcs.ControlePedido.Persistencia.Core.Servicos;
 
-namespace Tcs.ControlePedido.Negocio.Transporte.Commands.CalcularFrete
+namespace Tcs.ControlePedido.Negocio.Transporte.Queries.ObterFrete
 {
-    public class CalcularFreteCommand : ICalcularFreteCommand
+    public class ObterFreteQuery : IObterFreteQuery
     {
         private readonly IFreteServico freteServico;
-        private readonly CalcularFreteValidador validador;
+        private readonly ObterFreteValidador validador;
 
-        public CalcularFreteCommand(IFreteServico freteServico,
-            CalcularFreteValidador validador)
+        public ObterFreteQuery(IFreteServico freteServico,
+            ObterFreteValidador validador)
         {
             this.freteServico = freteServico;
             this.validador = validador;
         }
 
-        public async Task<decimal?> Executar(ICalcularFreteInput input, CancellationToken cancellationToken = default)
+        public async Task<IFrete> Executar(IObterFreteInput input, CancellationToken cancellationToken = default)
         {
             await ValidarInput(input, cancellationToken);
 
-            var frete = await this.freteServico.ObterFretePeloCep(input.Cep, cancellationToken);
-
-            return frete?.ValorFrete;
+            return await this.freteServico.ObterFretePeloCep(input.Cep, cancellationToken);
         }
 
-        private async Task ValidarInput(ICalcularFreteInput input, CancellationToken cancellationToken)
+        private async Task ValidarInput(IObterFreteInput input, CancellationToken cancellationToken)
         {
             var validacao = await validador.ValidateAsync(input, cancellationToken);
 

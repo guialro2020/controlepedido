@@ -1,0 +1,676 @@
+{
+	"info": {
+		"_postman_id": "f2445287-981a-436f-8833-5bcb90c0f068",
+		"name": "postman_collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cadastrar Produto 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9c6bdb89-991a-4a0d-a404-934838e1dc3a",
+						"exec": [
+							"pm.test(\"Resposta: Created\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Descricao\": \"Caneta\",\r\n  \"Categoria\": \"Escolar\",\r\n  \"ValorUnitario\": 1.52\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/v1/produtos/cadastrar",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"produtos",
+						"cadastrar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Produto 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "beb07939-7002-4bca-a9b3-08a4b00515a7",
+						"exec": [
+							"pm.test(\"Resposta: Created\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"let jsonResponse = pm.response.json();\r",
+							"pm.environment.set(\"codigoProdutoRemover\", jsonResponse.item_id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Descricao\": \"Lapis\",\r\n  \"Categoria\": \"Escolar\",\r\n  \"ValorUnitario\": 0.68\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/v1/produtos/cadastrar",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"produtos",
+						"cadastrar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Produto 3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "29659da6-9fb4-41e3-8901-3af7170fe53e",
+						"exec": [
+							"pm.test(\"Resposta: Created\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Descricao\": \"Caderno\",\r\n  \"Categoria\": \"Escolar\",\r\n  \"ValorUnitario\": 26.52\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/v1/produtos/cadastrar",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"produtos",
+						"cadastrar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Cliente 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5f5e238b-13cd-4aab-8c87-8e9ba5f5fde3",
+						"exec": [
+							"pm.test(\"response is ok\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"let jsonResponse = pm.response.json();\r",
+							"pm.environment.set(\"clienteARemover\", jsonResponse.item_id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"NomeCompleto\": \"Guilherme\",\r\n  \"Cpf\": \"12345566771\",\r\n  \"Endereco\": \"fqwf\",\r\n  \"Cep\": \"29536524\",\r\n  \"Bairro\": \"vxz\",\r\n  \"Cidade\": \"Cid\",\r\n  \"Uf\": \"ES\",\r\n  \"Telefone\": \"3333\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/v1/clientes/cadastrar",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"clientes",
+						"cadastrar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Pedido 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bc7d2615-1f11-4816-9714-f42e16386ab7",
+						"exec": [
+							"pm.test(\"response is ok\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"DataPedido\": \"2020-10-23T18:34:11.225Z\",\r\n  \"ClienteId\": 1,\r\n  \"ItensPedido\": [\r\n    {\r\n      \"CodigoProduto\": 1,\r\n      \"Quantidade\": 51\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/v1/pedidos/cadastrar",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"pedidos",
+						"cadastrar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Pedido 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "daddb2e1-27a2-43cf-8ae9-7d5e1fabfebf",
+						"exec": [
+							"pm.test(\"response is ok\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"DataPedido\": \"2020-10-23T18:34:11.225Z\",\r\n  \"ClienteId\": 1,\r\n  \"ItensPedido\": [\r\n    {\r\n      \"CodigoProduto\": 3,\r\n      \"Quantidade\": 135\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/v1/pedidos/cadastrar",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"pedidos",
+						"cadastrar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pedido Com produto Inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8a091b4c-a2e2-4eac-88c7-4a7895f869ed",
+						"exec": [
+							"pm.test(\"response is ok\", function () {\r",
+							"    pm.response.to.have.status(500);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"DataPedido\": \"2020-10-23T18:34:11.225Z\",\r\n  \"ClienteId\": 1,\r\n  \"ItensPedido\": [\r\n    {\r\n      \"CodigoProduto\": 10,\r\n      \"Quantidade\": 135\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/v1/pedidos/cadastrar",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"pedidos",
+						"cadastrar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remover Produto 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "273a9aa0-c9e4-4cd4-8e8f-6d6d9dcdac92",
+						"exec": [
+							"pm.test(\"Resposta: Ok\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/api/v1/produtos/remover?id=2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"produtos",
+						"remover"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verificar produto removido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "406d8ee3-fc52-4ee4-909d-bae76bc3b391",
+						"exec": [
+							"pm.test(\"Conferir status code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Conferir se é uma lista\", function () {\r",
+							"    pm.expect(jsonData).to.be.an(\"array\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Produto removido não se encontra mais na lista\", function () {\r",
+							"    let savedItemId = pm.environment.get(\"codigoProdutoRemover\");\r",
+							"    pm.expect(jsonData).to.not.include(savedItemId);    \r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/api/v1/produtos",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"produtos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar Produto 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d3a3384e-dcd7-4ba7-973f-f451b1345ee0",
+						"exec": [
+							"pm.test(\"Resposta: NoContent\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Descricao\": \"Caneta Vermelha\",\r\n  \"Categoria\": \"Escolar\",\r\n  \"ValorUnitario\": 5.23\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/v1/produtos/atualizar?id=1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"produtos",
+						"atualizar"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remover Cliente 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "66fd02ef-611f-4341-aaa1-a769f344f13c",
+						"exec": [
+							"pm.test(\"Resposta: Ok\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/api/v1/clientes/remover?id=1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"clientes",
+						"remover"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verificar cliente removido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d66c74db-ad2d-4982-ab7b-d9150b12bbc1",
+						"exec": [
+							"pm.test(\"Conferir status code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Conferir se é uma lista\", function () {\r",
+							"    pm.expect(jsonData).to.be.an(\"array\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Cliente removido não se encontra mais na lista\", function () {\r",
+							"    let savedItemId = pm.environment.get(\"clienteARemover\");\r",
+							"    pm.expect(jsonData).to.not.include(savedItemId);    \r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/api/v1/clientes",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar Pedido Inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4a38741a-37bc-4205-a9ab-5592336465b7",
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Test data type of the response\", function () {\r",
+							"  pm.expect(jsonData).to.be.an(\"object\");\r",
+							"  pm.expect(pm.response.json().Message).to.include(\"O Pedido não existe\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"ItensPedido\": [ \r\n    {\r\n      \"CodigoProduto\": 2,\r\n      \"Quantidade\": 120\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/v1/pedidos/atualizar?id=3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"pedidos",
+						"atualizar"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verificar obtenção de pedidos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f1a6d08c-0202-4474-94a8-5200cfcc43c6",
+						"exec": [
+							"pm.test(\"Conferir Status Code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Conferir se é uma lista\", function () {\r",
+							"    pm.expect(jsonData).to.be.an(\"array\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"DataPedido\": \"2020-10-23T18:34:11.225Z\",\r\n  \"ClienteId\": 1,\r\n  \"ItensPedido\": [\r\n    {\r\n      \"CodigoProduto\": 1,\r\n      \"Quantidade\": 1\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/v1/pedidos",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"pedidos"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

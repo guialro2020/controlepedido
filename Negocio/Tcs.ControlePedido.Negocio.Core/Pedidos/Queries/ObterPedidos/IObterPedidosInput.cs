@@ -1,6 +1,6 @@
 ﻿namespace Tcs.ControlePedido.Negocio.Core.Pedidos.Queries.ObterPedidos
 {
-    public interface IObterPedidosInput : IIQueryInput
+    public interface IObterPedidosInput : IQueryInput
     {
     }
 }

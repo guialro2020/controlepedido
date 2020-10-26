@@ -26,9 +26,12 @@ namespace Tcs.ControlePedido.Negocio.Produtos.Commands.CadastrarProduto
         {
             await ValidarInput(input, cancellationToken);
 
+            var produtoNovo = MapearNovoProduto(input);
+            await this.clienteServico.CadastrarProduto(produtoNovo, cancellationToken);
+
             var cadastrarProdutoOutput = new CadastrarProdutoOutput
             {
-                CodigoProduto = await this.clienteServico.CadastrarProduto(MapearNovoProduto(input), cancellationToken)
+                CodigoProduto = produtoNovo.CodigoProduto
             };
 
             return cadastrarProdutoOutput;

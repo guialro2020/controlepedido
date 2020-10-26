@@ -1,14 +1,14 @@
 ﻿using FluentValidation;
-using Tcs.ControlePedido.Negocio.Core.Transporte.Commands.CalcularFrete;
+using Tcs.ControlePedido.Negocio.Core.Transporte.Queries.ObterFrete;
 using Tcs.ControlePedido.Persistencia.Core.Servicos;
 
-namespace Tcs.ControlePedido.Negocio.Transporte.Commands.CalcularFrete
+namespace Tcs.ControlePedido.Negocio.Transporte.Queries.ObterFrete
 {
-    public class CalcularFreteValidador : AbstractValidator<ICalcularFreteInput>
+    public class ObterFreteValidador : AbstractValidator<IObterFreteInput>
     {
         public readonly IFreteServico clienteServico;
 
-        public CalcularFreteValidador(IFreteServico clienteServico)
+        public ObterFreteValidador(IFreteServico clienteServico)
         {
             this.clienteServico = clienteServico;
 
